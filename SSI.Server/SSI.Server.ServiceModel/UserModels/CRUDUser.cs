@@ -1,9 +1,5 @@
 ﻿using ServiceStack;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SSI.Server.ServiceModel.UserModels
 {
@@ -11,8 +7,13 @@ namespace SSI.Server.ServiceModel.UserModels
     {
     }
 
+    public class CreateUser : IReturnVoid
+    {
+        public UserLocal User { get; set; } 
+    }
+
     public class UserList
     {
-        public List<User>
+        public List<UserLocal> Result { get; set; }
     }
 }

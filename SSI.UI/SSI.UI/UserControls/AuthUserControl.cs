@@ -1,5 +1,5 @@
 ﻿using DevExpress.XtraEditors;
-using SSI.UI.Type;
+using SSI.Server.ServiceModel.UserModels;
 using System;
 using System.ComponentModel;
 
@@ -33,7 +33,7 @@ namespace SSI.UI.UserControls
         private void SetTestValue()
         {
             loginTE.Text = @"Admin";
-            passwordTE.Text = @"12345678";
+            passwordTE.Text = @"12qwasZX";
         }
     }
 }

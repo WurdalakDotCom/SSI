@@ -1,5 +1,5 @@
 ﻿using ServiceStack;
-using SSI.UI.Type;
+using SSI.Server.ServiceModel.UserModels;
 using SSI.UI.UserControls;
 using System;
 using System.Runtime.Caching;
@@ -42,23 +42,21 @@ namespace SSI.UI.Core
                 if (dialogResult == DialogResult.OK)
                 {
                     var userAuth = control.DataSource;
-                    var authorizeStatus = Authorize(userAuth);
-                    
-                    if (authorizeStatus)
-                    {
-                        //userAuth.Roles = SharedGateway.SharedGateway
-                        //    .Call(new GetRolesForUser() { UserRefId = userAuth.RefIdStr }).Roles.ToList();
-                    }
 
-                    return authorizeStatus == false ? null : userAuth;
+                    if (Authorize(userAuth))
+                    {
+                        return Gateway.Call(new GetUserInfo() { UserName = userAuth.UserName });
+                    }
+                    else
+                    {
+                        return null;
+                    }
                 }
-                if (dialogResult == DialogResult.Cancel)
+                else                    
                 {
-                    MessageBox.Show("Отмена");
                     return null;
                 }
             }
-            return null;
         }
     }
 }

@@ -4,6 +4,7 @@ using ServiceStack.Auth;
 using ServiceStack.Data;
 using ServiceStack.OrmLite;
 using SSI.Server.ServiceInterface;
+using System.Collections.Generic;
 using System.Configuration;
 
 namespace SSI.Server
@@ -15,7 +16,7 @@ namespace SSI.Server
         /// Base constructor requires a Name and Assembly where web service implementation is located
         /// </summary>
         public AppHost()
-            : base("SSI.Server", typeof(MyServices).Assembly) { }
+            : base("SSI.Server", typeof(UserServices).Assembly) { }
 
         /// <summary>
         /// Application specific configuration
@@ -34,6 +35,23 @@ namespace SSI.Server
                 new OrmLiteAuthRepository(container.Resolve<IDbConnectionFactory>()) { UseDistinctRoleTables = true, ForceCaseInsensitiveUserNameSearch = true });
 
             container.Resolve<IAuthRepository>().InitSchema();
+
+            InitBase(container);
+        }
+
+        public void InitBase(Container container)
+        {
+            var authRepository = container.Resolve<IAuthRepository>();
+
+            using (var db = container.Resolve<IDbConnectionFactory>().Open())
+            {
+                var user = db.Single<UserAuth>(x => x.UserName == "Admin");
+
+                if(user == null)
+                {
+                    authRepository.CreateUserAuth(new UserAuth() { UserName = "Admin", Roles = new List<string>() { "Admin" } }, "12qwasZX");
+                }
+            }
         }
     }
 }
