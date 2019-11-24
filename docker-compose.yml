@@ -1,0 +1,12 @@
+version: '3.4'
+
+services:
+  IDB:
+    hostname: idb_host
+    image: docker.io/wurdalack/idb_host:latest
+    command: postgres -c fsync=off -c synchronous_commit=off -c full_page_writes=off 
+    container_name: idb_host
+    environment: 
+      POSTGRES_PASSWORD: 12qwasZX
+    ports: 
+      - "4825:5432"
