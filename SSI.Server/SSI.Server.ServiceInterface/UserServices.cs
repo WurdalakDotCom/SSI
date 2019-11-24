@@ -4,15 +4,20 @@ using ServiceStack.Data;
 using ServiceStack.OrmLite;
 using SSI.Server.ServiceModel.UserModels;
 using System.Linq;
+
 namespace SSI.Server.ServiceInterface
 {
     public class UserServices : Service
     {
         public IDbConnectionFactory DbFactory { get; set; }
 
-        public void Any(CreateUser request)
+        public object Any(GetAllUser request)
         {
-
+            using (var db = DbFactory.OpenDbConnection())
+            {
+                var reuslt = db.Select<UserAuth>().Select(x => x.ConvertTo<UserLocal>());
+                return new UserList() { Result = reuslt.ToList() };
+            }
         }
 
         public object Any(GetUserInfo request)
