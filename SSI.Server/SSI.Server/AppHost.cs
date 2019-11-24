@@ -26,13 +26,8 @@ namespace SSI.Server
             var dbFactory = container.Register<IDbConnectionFactory>(c =>
                 new OrmLiteConnectionFactory(ConfigurationManager.AppSettings.Get("IDB"), PostgreSqlDialect.Provider));
 
-            Plugins.Add(new AuthFeature(
-                    () => new AuthUserSession()
-                    , new IAuthProvider[]
-                    {
-                        new CredentialsAuthProvider() { SessionExpiry = System.TimeSpan.FromHours(AppSettings.Get<int>("SessionLifeTimeInHours")) }
-                    }
-                ));
+            Plugins.Add(new AuthFeature(() => new AuthUserSession(), new IAuthProvider[] {
+                new CredentialsAuthProvider() { SessionExpiry = System.TimeSpan.FromHours(AppSettings.Get<int>("SessionLifeTimeInHours")) }}));
 
 
             container.Register<IAuthRepository>(arg =>
