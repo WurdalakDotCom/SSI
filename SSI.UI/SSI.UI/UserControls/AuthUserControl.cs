@@ -15,7 +15,7 @@ namespace SSI.UI.UserControls
                 {
                     UserName = loginTE.Text,
                     Password = passwordTE.Text,
-                    UserCreateDate = DateTime.Now
+                    CreatedDate = DateTime.Now
                 };
             set
             {

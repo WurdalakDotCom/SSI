@@ -4,6 +4,7 @@ using ServiceStack.Auth;
 using ServiceStack.Data;
 using ServiceStack.OrmLite;
 using SSI.Server.ServiceInterface;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 
@@ -49,7 +50,7 @@ namespace SSI.Server
 
                 if(user == null)
                 {
-                    authRepository.CreateUserAuth(new UserAuth() { UserName = "Admin", Roles = new List<string>() { "Admin" } }, "12qwasZX");
+                    authRepository.CreateUserAuth(new UserAuth() { UserName = "Admin", Roles = new List<string>() { "Admin" }, CreatedDate = DateTime.Now }, "12qwasZX");
                 }
             }
         }

@@ -21,5 +21,10 @@ namespace SSI.UI.Core
         {
             return Client.Send(requestDto);
         }
+
+        public static void Call(IReturnVoid requestDto)
+        {
+            Client.Send(requestDto);
+        }
     }
 }

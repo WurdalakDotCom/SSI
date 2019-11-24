@@ -19,6 +19,36 @@ namespace SSI.Server.ServiceInterface
                 return new UserList() { Result = reuslt.ToList() };
             }
         }
+        public object Any(CreateUser request)
+        {
+            using (var db = DbFactory.OpenDbConnection())
+            {
+                var user = db.Single<UserAuth>(x => x.UserName == request.User.UserName);
+                if (user != null)
+                    return false;
+
+                var authRepository = this.Resolve<IAuthRepository>();
+                authRepository.CreateUserAuth(new UserAuth() { UserName = request.User.UserName, CreatedDate = request.User.CreatedDate }, request.User.Password);
+
+                return true;
+            }
+        }
+
+        public void Any(UpdateUser request)
+        {
+            using (var db = DbFactory.OpenDbConnection())
+            {
+                db.Update<UserAuth>(request.User);
+            }
+        }
+
+        public void Any(DeleteUser request)
+        {
+            using (var db = DbFactory.OpenDbConnection())
+            {
+                db.DeleteById<UserAuth>(request.Id);
+            }
+        }
 
         public object Any(GetUserInfo request)
         {

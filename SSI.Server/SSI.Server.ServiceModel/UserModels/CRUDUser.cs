@@ -7,9 +7,19 @@ namespace SSI.Server.ServiceModel.UserModels
     {
     }
 
-    public class CreateUser : IReturnVoid
+    public class CreateUser : IReturn<bool>
     {
         public UserLocal User { get; set; } 
+    }
+
+    public class UpdateUser : IReturnVoid
+    {
+        public UserLocal User { get; set; }
+    }
+
+    public class DeleteUser : IReturnVoid
+    {
+        public int Id { get; set; }
     }
 
     public class UserList
