@@ -115,6 +115,12 @@
     <Compile Include="UserControls\AuthUserControl.designer.cs">
       <DependentUpon>AuthUserControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\ClientControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ClientControl.Designer.cs">
+      <DependentUpon>ClientControl.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Forms\AddUser.resx">
       <DependentUpon>AddUser.cs</DependentUpon>
     </EmbeddedResource>
@@ -139,6 +145,7 @@
     </EmbeddedResource>
     <None Include="App.config" />
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\SSI.Server.ServiceModel.ClientModels.Client.datasource" />
     <None Include="Properties\DataSources\SSI.Server.ServiceModel.UserModels.UserLocal.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

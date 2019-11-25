@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Root Type="DevExpress.CodeRush.Foundation.Markers.SolutionBookmarksContainer">
+  <Options Language="Neutral">
+    <Items>
+      <Item Id="{7f94b878-6a18-4501-aaad-c2523c099d2a}">
+        <Id>1</Id>
+        <File>SSI.UI\SSI.UI\Forms\UserManagement.cs</File>
+        <Line>34</Line>
+        <ViewportTop>31</ViewportTop>
+        <ViewportTopMax>74</ViewportTopMax>
+        <TopLine>31</TopLine>
+      </Item>
+    </Items>
+  </Options>
+</Root>

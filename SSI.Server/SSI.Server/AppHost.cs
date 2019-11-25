@@ -4,6 +4,10 @@ using ServiceStack.Auth;
 using ServiceStack.Data;
 using ServiceStack.OrmLite;
 using SSI.Server.ServiceInterface;
+using SSI.Server.ServiceModel.ClientModels;
+using SSI.Server.ServiceModel.DeliveryModels;
+using SSI.Server.ServiceModel.ProductModels;
+using SSI.Server.ServiceModel.TransportModels;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -52,6 +56,13 @@ namespace SSI.Server
                 {
                     authRepository.CreateUserAuth(new UserAuth() { UserName = "Admin", Roles = new List<string>() { "Admin" }, CreatedDate = DateTime.Now }, "12qwasZX");
                 }
+            
+                db.CreateTableIfNotExists<Client>();
+                db.CreateTableIfNotExists<Transport>();
+                db.CreateTableIfNotExists<Product>();
+                db.CreateTableIfNotExists<Accounting>();
+                db.CreateTableIfNotExists<Delivery>();
+                db.CreateTableIfNotExists<Party>();
             }
         }
     }

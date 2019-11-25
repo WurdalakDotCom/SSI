@@ -43,7 +43,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ClientModels\Client.cs" />
+    <Compile Include="ClientModels\CRUDClient.cs" />
+    <Compile Include="DeliveryModels\Delivery.cs" />
+    <Compile Include="ProductModels\Accounting.cs" />
+    <Compile Include="ProductModels\Product.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TransportModels\Transport.cs" />
     <Compile Include="UserModels\CRUDUser.cs" />
     <Compile Include="UserModels\GetUserRoles.cs" />
     <Compile Include="UserModels\UserLocal.cs" />
