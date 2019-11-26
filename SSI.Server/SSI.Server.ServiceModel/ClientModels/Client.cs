@@ -21,7 +21,7 @@ namespace SSI.Server.ServiceModel.ClientModels
         public string PersonType { get; set; }
         public string ReferenceCompany { get; set; }
         [Required]
-        public string Indentif { get; set; }
+        public string Identif { get; set; }
         [Default("NOW()")]
         public DateTime RegDate { get; set; }
         public string Phone { get; set; }

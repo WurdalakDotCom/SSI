@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.textEdit7 = new DevExpress.XtraEditors.TextEdit();
             this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
@@ -52,6 +53,7 @@
             this.layoutControlItem9 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlItem10 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.errorProvider = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit7.Properties)).BeginInit();
@@ -76,6 +78,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
@@ -104,10 +107,13 @@
             this.textEdit7.Location = new System.Drawing.Point(184, 180);
             this.textEdit7.Name = "textEdit7";
             this.textEdit7.Properties.Mask.EditMask = "80(\\d\\d) \\d\\d\\d-\\d\\d-\\d\\d";
+            this.textEdit7.Properties.Mask.IgnoreMaskBlank = false;
             this.textEdit7.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Regular;
             this.textEdit7.Size = new System.Drawing.Size(344, 20);
             this.textEdit7.StyleController = this.layoutControl1;
             this.textEdit7.TabIndex = 16;
+            this.textEdit7.Validating += new System.ComponentModel.CancelEventHandler(this.textEdit1_Validating);
+            this.textEdit7.Validated += new System.EventHandler(this.textEdit1_Validated);
             // 
             // simpleButton2
             // 
@@ -149,6 +155,8 @@
             this.textEdit6.Size = new System.Drawing.Size(344, 20);
             this.textEdit6.StyleController = this.layoutControl1;
             this.textEdit6.TabIndex = 12;
+            this.textEdit6.Validating += new System.ComponentModel.CancelEventHandler(this.textEdit1_Validating);
+            this.textEdit6.Validated += new System.EventHandler(this.textEdit1_Validated);
             // 
             // textEdit5
             // 
@@ -164,13 +172,15 @@
             // 
             this.textEdit4.Location = new System.Drawing.Point(12, 68);
             this.textEdit4.Name = "textEdit4";
-            this.textEdit4.Properties.Mask.EditMask = "\\p{L}+";
+            this.textEdit4.Properties.Mask.EditMask = "\\p{L}*";
             this.textEdit4.Properties.Mask.IgnoreMaskBlank = false;
             this.textEdit4.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
             this.textEdit4.Properties.Mask.ShowPlaceHolders = false;
             this.textEdit4.Size = new System.Drawing.Size(256, 20);
             this.textEdit4.StyleController = this.layoutControl1;
             this.textEdit4.TabIndex = 10;
+            this.textEdit4.Validating += new System.ComponentModel.CancelEventHandler(this.textEdit1_Validating);
+            this.textEdit4.Validated += new System.EventHandler(this.textEdit1_Validated);
             // 
             // textEdit3
             // 
@@ -186,25 +196,29 @@
             // 
             this.textEdit2.Location = new System.Drawing.Point(272, 28);
             this.textEdit2.Name = "textEdit2";
-            this.textEdit2.Properties.Mask.EditMask = "\\p{L}+";
+            this.textEdit2.Properties.Mask.EditMask = "\\p{L}*";
             this.textEdit2.Properties.Mask.IgnoreMaskBlank = false;
             this.textEdit2.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
             this.textEdit2.Properties.Mask.ShowPlaceHolders = false;
             this.textEdit2.Size = new System.Drawing.Size(256, 20);
             this.textEdit2.StyleController = this.layoutControl1;
             this.textEdit2.TabIndex = 5;
+            this.textEdit2.Validating += new System.ComponentModel.CancelEventHandler(this.textEdit1_Validating);
+            this.textEdit2.Validated += new System.EventHandler(this.textEdit1_Validated);
             // 
             // textEdit1
             // 
             this.textEdit1.Location = new System.Drawing.Point(12, 28);
             this.textEdit1.Name = "textEdit1";
-            this.textEdit1.Properties.Mask.EditMask = "\\p{L}+";
+            this.textEdit1.Properties.Mask.EditMask = "\\p{L}*";
             this.textEdit1.Properties.Mask.IgnoreMaskBlank = false;
             this.textEdit1.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
             this.textEdit1.Properties.Mask.ShowPlaceHolders = false;
             this.textEdit1.Size = new System.Drawing.Size(256, 20);
             this.textEdit1.StyleController = this.layoutControl1;
             this.textEdit1.TabIndex = 4;
+            this.textEdit1.Validating += new System.ComponentModel.CancelEventHandler(this.textEdit1_Validating);
+            this.textEdit1.Validated += new System.EventHandler(this.textEdit1_Validated);
             // 
             // Root
             // 
@@ -337,6 +351,10 @@
             this.layoutControlItem10.Text = "Телефон";
             this.layoutControlItem10.TextSize = new System.Drawing.Size(169, 13);
             // 
+            // errorProvider
+            // 
+            this.errorProvider.ContainerControl = this;
+            // 
             // AddClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -375,6 +393,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -405,5 +424,6 @@
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
         private DevExpress.XtraEditors.TextEdit textEdit7;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem10;
+        private DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider errorProvider;
     }
 }

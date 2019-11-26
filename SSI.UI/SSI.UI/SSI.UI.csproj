@@ -101,6 +101,12 @@
     <Compile Include="Forms\AddUser.Designer.cs">
       <DependentUpon>AddUser.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\ProductManagement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ProductManagement.Designer.cs">
+      <DependentUpon>ProductManagement.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\UserManagement.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -133,6 +139,9 @@
     <EmbeddedResource Include="Forms\AddUser.resx">
       <DependentUpon>AddUser.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ProductManagement.resx">
+      <DependentUpon>ProductManagement.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\UserManagement.resx">
       <DependentUpon>UserManagement.cs</DependentUpon>
     </EmbeddedResource>
@@ -155,6 +164,7 @@
     <None Include="App.config" />
     <None Include="packages.config" />
     <None Include="Properties\DataSources\SSI.Server.ServiceModel.ClientModels.Client.datasource" />
+    <None Include="Properties\DataSources\SSI.Server.ServiceModel.ProductModels.Product.datasource" />
     <None Include="Properties\DataSources\SSI.Server.ServiceModel.UserModels.UserLocal.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
