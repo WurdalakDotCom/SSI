@@ -215,8 +215,6 @@
             this.colRegDate});
             this.clientView.GridControl = this.gridControl1;
             this.clientView.Name = "clientView";
-            this.clientView.OptionsBehavior.EditingMode = DevExpress.XtraGrid.Views.Grid.GridEditingMode.Inplace;
-            this.clientView.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Top;
             this.clientView.OptionsView.ShowGroupPanel = false;
             this.clientView.PopupMenuShowing += new DevExpress.XtraGrid.Views.Grid.PopupMenuShowingEventHandler(this.clientView_PopupMenuShowing);
             this.clientView.RowUpdated += new DevExpress.XtraGrid.Views.Base.RowObjectEventHandler(this.clientView_RowUpdated);
@@ -238,15 +236,12 @@
             // 
             // repositoryItemTextEdit1
             // 
-            this.repositoryItemTextEdit1.AllowNullInput = DevExpress.Utils.DefaultBoolean.True;
             this.repositoryItemTextEdit1.AutoHeight = false;
             this.repositoryItemTextEdit1.Mask.EditMask = "\\p{L}+";
             this.repositoryItemTextEdit1.Mask.IgnoreMaskBlank = false;
             this.repositoryItemTextEdit1.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
             this.repositoryItemTextEdit1.Mask.ShowPlaceHolders = false;
             this.repositoryItemTextEdit1.Name = "repositoryItemTextEdit1";
-            this.repositoryItemTextEdit1.NullValuePromptShowForEmptyValue = true;
-            this.repositoryItemTextEdit1.ShowNullValuePromptWhenFocused = true;
             // 
             // colLastName
             // 
