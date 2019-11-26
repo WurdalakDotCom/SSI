@@ -24,5 +24,6 @@ namespace SSI.Server.ServiceModel.ClientModels
         public string Indentif { get; set; }
         [Default("NOW()")]
         public DateTime RegDate { get; set; }
+        public string Phone { get; set; }
     }
 }

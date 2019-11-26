@@ -89,6 +89,12 @@
   <ItemGroup>
     <Compile Include="Core\Authorization.cs" />
     <Compile Include="Core\Gateway.cs" />
+    <Compile Include="Forms\AddClient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AddClient.Designer.cs">
+      <DependentUpon>AddClient.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\AddUser.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -121,6 +127,9 @@
     <Compile Include="UserControls\ClientControl.Designer.cs">
       <DependentUpon>ClientControl.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Forms\AddClient.resx">
+      <DependentUpon>AddClient.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\AddUser.resx">
       <DependentUpon>AddUser.cs</DependentUpon>
     </EmbeddedResource>
