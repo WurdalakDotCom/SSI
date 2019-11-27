@@ -4,13 +4,15 @@ using ServiceStack.Data;
 using ServiceStack.OrmLite;
 using SSI.Server.ServiceModel.UserModels;
 using System.Linq;
+using System.Security.Policy;
+using System.ServiceModel;
 
 namespace SSI.Server.ServiceInterface
 {
     public class UserServices : Service
     {
         public IDbConnectionFactory DbFactory { get; set; }
-
+        
         public object Any(GetAllUser request)
         {
             using (var db = DbFactory.OpenDbConnection())
@@ -27,7 +29,7 @@ namespace SSI.Server.ServiceInterface
                 if (user != null)
                     return false;
 
-                var authRepository = this.Resolve<IAuthRepository>();
+                var authRepository = ServiceStackHost.Instance.Resolve<IAuthRepository>();
                 authRepository.CreateUserAuth(new UserAuth() { UserName = request.User.UserName, CreatedDate = request.User.CreatedDate }, request.User.Password);
 
                 return true;

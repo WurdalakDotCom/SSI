@@ -3,11 +3,11 @@ using ServiceStack;
 using ServiceStack.Auth;
 using ServiceStack.Data;
 using ServiceStack.OrmLite;
+using ServiceStack.OrmLite.Sqlite;
 using SSI.Server.ServiceInterface;
 using SSI.Server.ServiceModel.ClientModels;
 using SSI.Server.ServiceModel.DeliveryModels;
 using SSI.Server.ServiceModel.ProductModels;
-using SSI.Server.ServiceModel.TransportModels;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -29,8 +29,11 @@ namespace SSI.Server
         /// </summary>
         public override void Configure(Container container)
         {
+            //var dbFactory = container.Register<IDbConnectionFactory>(c =>
+            //    new OrmLiteConnectionFactory(ConfigurationManager.AppSettings.Get("IDB"), PostgreSqlDialect.Provider));
             var dbFactory = container.Register<IDbConnectionFactory>(c =>
-                new OrmLiteConnectionFactory(ConfigurationManager.AppSettings.Get("IDB"), PostgreSqlDialect.Provider));
+                new OrmLiteConnectionFactory("C:/tmp.db3", SqliteDialect.Provider));
+            ;
 
             Plugins.Add(new AuthFeature(() => new AuthUserSession(), new IAuthProvider[] {
                 new CredentialsAuthProvider() { SessionExpiry = System.TimeSpan.FromHours(AppSettings.Get<int>("SessionLifeTimeInHours")) }}));
@@ -58,7 +61,6 @@ namespace SSI.Server
                 }
             
                 db.CreateTableIfNotExists<Client>();
-                db.CreateTableIfNotExists<Transport>();
                 db.CreateTableIfNotExists<Product>();
                 db.CreateTableIfNotExists<Accounting>();
                 db.CreateTableIfNotExists<Delivery>();

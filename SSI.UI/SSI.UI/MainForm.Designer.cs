@@ -61,8 +61,14 @@
             this.colRegDate = new DevExpress.XtraGrid.Columns.GridColumn();
             this.tabNavigationPage2 = new DevExpress.XtraBars.Navigation.TabNavigationPage();
             this.gridControl2 = new DevExpress.XtraGrid.GridControl();
-            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.productBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colId1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colName = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colArticle = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colDescription = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.barButtonItem10 = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabPane1)).BeginInit();
             this.tabPane1.SuspendLayout();
@@ -73,8 +79,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).BeginInit();
             this.tabNavigationPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // ribbon
@@ -91,9 +97,10 @@
             this.barButtonItem6,
             this.barButtonItem7,
             this.barButtonItem8,
-            this.barButtonItem9});
+            this.barButtonItem9,
+            this.barButtonItem10});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 12;
+            this.ribbon.MaxItemId = 13;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1});
@@ -185,7 +192,8 @@
             this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.ribbonPageGroup2,
             this.ribbonPageGroup1,
-            this.ribbonPageGroup3});
+            this.ribbonPageGroup3,
+            this.ribbonPageGroup4});
             this.ribbonPage1.Name = "ribbonPage1";
             this.ribbonPage1.Text = "ribbonPage1";
             // 
@@ -258,10 +266,6 @@
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.clientView});
             // 
-            // clientBindingSource
-            // 
-            this.clientBindingSource.DataSource = typeof(SSI.Server.ServiceModel.ClientModels.Client);
-            // 
             // clientView
             // 
             this.clientView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
@@ -275,14 +279,15 @@
             this.colRegDate});
             this.clientView.GridControl = this.gridControl1;
             this.clientView.Name = "clientView";
+            this.clientView.OptionsBehavior.Editable = false;
+            this.clientView.OptionsFilter.ShowCustomFunctions = DevExpress.Utils.DefaultBoolean.True;
+            this.clientView.OptionsView.ShowAutoFilterRow = true;
             this.clientView.OptionsView.ShowGroupPanel = false;
             // 
             // colId
             // 
             this.colId.FieldName = "Id";
             this.colId.Name = "colId";
-            this.colId.Visible = true;
-            this.colId.VisibleIndex = 0;
             // 
             // colFirstName
             // 
@@ -290,7 +295,7 @@
             this.colFirstName.FieldName = "FirstName";
             this.colFirstName.Name = "colFirstName";
             this.colFirstName.Visible = true;
-            this.colFirstName.VisibleIndex = 1;
+            this.colFirstName.VisibleIndex = 0;
             // 
             // repositoryItemTextEdit1
             // 
@@ -306,42 +311,42 @@
             this.colLastName.FieldName = "LastName";
             this.colLastName.Name = "colLastName";
             this.colLastName.Visible = true;
-            this.colLastName.VisibleIndex = 2;
+            this.colLastName.VisibleIndex = 1;
             // 
             // colSecondName
             // 
             this.colSecondName.FieldName = "SecondName";
             this.colSecondName.Name = "colSecondName";
             this.colSecondName.Visible = true;
-            this.colSecondName.VisibleIndex = 3;
+            this.colSecondName.VisibleIndex = 2;
             // 
             // colPersonType
             // 
             this.colPersonType.FieldName = "PersonType";
             this.colPersonType.Name = "colPersonType";
             this.colPersonType.Visible = true;
-            this.colPersonType.VisibleIndex = 4;
+            this.colPersonType.VisibleIndex = 3;
             // 
             // colReferenceCompany
             // 
             this.colReferenceCompany.FieldName = "ReferenceCompany";
             this.colReferenceCompany.Name = "colReferenceCompany";
             this.colReferenceCompany.Visible = true;
-            this.colReferenceCompany.VisibleIndex = 5;
+            this.colReferenceCompany.VisibleIndex = 4;
             // 
             // colIndentif
             // 
             this.colIndentif.FieldName = "Identif";
             this.colIndentif.Name = "colIndentif";
             this.colIndentif.Visible = true;
-            this.colIndentif.VisibleIndex = 6;
+            this.colIndentif.VisibleIndex = 5;
             // 
             // colRegDate
             // 
             this.colRegDate.FieldName = "RegDate";
             this.colRegDate.Name = "colRegDate";
             this.colRegDate.Visible = true;
-            this.colRegDate.VisibleIndex = 7;
+            this.colRegDate.VisibleIndex = 6;
             // 
             // tabNavigationPage2
             // 
@@ -352,6 +357,7 @@
             // 
             // gridControl2
             // 
+            this.gridControl2.DataSource = this.productBindingSource;
             this.gridControl2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gridControl2.Location = new System.Drawing.Point(0, 0);
             this.gridControl2.MainView = this.gridView1;
@@ -362,15 +368,62 @@
             this.gridControl2.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
             // 
-            // gridView1
-            // 
-            this.gridView1.GridControl = this.gridControl2;
-            this.gridView1.Name = "gridView1";
-            this.gridView1.OptionsView.ShowGroupPanel = false;
-            // 
             // productBindingSource
             // 
             this.productBindingSource.DataSource = typeof(SSI.Server.ServiceModel.ProductModels.Product);
+            // 
+            // gridView1
+            // 
+            this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colId1,
+            this.colName,
+            this.colArticle,
+            this.colDescription});
+            this.gridView1.GridControl = this.gridControl2;
+            this.gridView1.Name = "gridView1";
+            this.gridView1.OptionsBehavior.Editable = false;
+            this.gridView1.OptionsView.ShowAutoFilterRow = true;
+            this.gridView1.OptionsView.ShowGroupPanel = false;
+            // 
+            // colId1
+            // 
+            this.colId1.FieldName = "Id";
+            this.colId1.Name = "colId1";
+            // 
+            // colName
+            // 
+            this.colName.FieldName = "Name";
+            this.colName.Name = "colName";
+            this.colName.Visible = true;
+            this.colName.VisibleIndex = 0;
+            // 
+            // colArticle
+            // 
+            this.colArticle.FieldName = "Article";
+            this.colArticle.Name = "colArticle";
+            this.colArticle.Visible = true;
+            this.colArticle.VisibleIndex = 1;
+            // 
+            // colDescription
+            // 
+            this.colDescription.FieldName = "Description";
+            this.colDescription.Name = "colDescription";
+            this.colDescription.Visible = true;
+            this.colDescription.VisibleIndex = 2;
+            // 
+            // ribbonPageGroup4
+            // 
+            this.ribbonPageGroup4.ItemLinks.Add(this.barButtonItem10);
+            this.ribbonPageGroup4.Name = "ribbonPageGroup4";
+            this.ribbonPageGroup4.Text = "ribbonPageGroup4";
+            // 
+            // barButtonItem10
+            // 
+            this.barButtonItem10.Caption = "Регистрация поставки";
+            this.barButtonItem10.Id = 12;
+            this.barButtonItem10.Name = "barButtonItem10";
+            this.barButtonItem10.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.barButtonItem10.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem10_ItemClick);
             // 
             // MainForm
             // 
@@ -395,8 +448,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).EndInit();
             this.tabNavigationPage2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -437,5 +490,11 @@
         private DevExpress.XtraGrid.GridControl gridControl2;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private System.Windows.Forms.BindingSource productBindingSource;
+        private DevExpress.XtraGrid.Columns.GridColumn colId1;
+        private DevExpress.XtraGrid.Columns.GridColumn colName;
+        private DevExpress.XtraGrid.Columns.GridColumn colArticle;
+        private DevExpress.XtraGrid.Columns.GridColumn colDescription;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem10;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup4;
     }
 }

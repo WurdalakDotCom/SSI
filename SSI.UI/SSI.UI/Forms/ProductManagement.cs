@@ -48,7 +48,6 @@ namespace SSI.UI.Forms
         {
             textEdit1.CausesValidation = true;
             textEdit2.CausesValidation = true;
-            richTextBox1.CausesValidation = true;
 
             if (ValidateChildren())
             {
@@ -78,7 +77,6 @@ namespace SSI.UI.Forms
                 XtraMessageBox.Show("Некорректно заполнены поля формы");
                 textEdit1.CausesValidation = false;
                 textEdit2.CausesValidation = false;
-                richTextBox1.CausesValidation = false;
             }
         }
 

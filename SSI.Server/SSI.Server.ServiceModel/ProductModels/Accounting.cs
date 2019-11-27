@@ -13,5 +13,10 @@ namespace SSI.Server.ServiceModel.ProductModels
         public int ProductId { get; set; }
         [Default(0)]
         public int Count { get; set; }
+
+        [Reference]
+        public Client Client { get; set; }
+        [Reference]
+        public Product Product { get; set; }
     }
 }

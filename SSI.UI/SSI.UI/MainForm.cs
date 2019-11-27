@@ -106,5 +106,13 @@ namespace SSI.UI
         {
             RefreshDataProduct();
         }
+
+        private void barButtonItem10_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            using (var form = new DeliveryManagement())
+            {
+                form.ShowDialog();
+            }
+        }
     }
 }
