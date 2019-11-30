@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="ClientModels\Client.cs" />
     <Compile Include="ClientModels\CRUDClient.cs" />
+    <Compile Include="DeliveryModels\CRUDDelivery.cs" />
     <Compile Include="DeliveryModels\Delivery.cs" />
     <Compile Include="ProductModels\Accounting.cs" />
     <Compile Include="ProductModels\CRUDProduct.cs" />

@@ -51,13 +51,20 @@ namespace SSI.UI.Forms
         {
             using (var control = new SelectorClient() { Dock = System.Windows.Forms.DockStyle.Fill })
             {
-                using (var form = new XtraForm() { StartPosition = System.Windows.Forms.FormStartPosition.CenterParent })
+                using (var form = new XtraForm()
+                {
+                    StartPosition = System.Windows.Forms.FormStartPosition.CenterParent,
+                    Text = "Выбор клиента",
+                    ShowIcon = false,
+                    Size = new System.Drawing.Size(400,600)
+                })
                 {
                     form.Controls.Add(control);
                     form.ShowDialog();
-                    if(form.DialogResult == System.Windows.Forms.DialogResult.OK)
+                    if (form.DialogResult == System.Windows.Forms.DialogResult.OK)
                     {
                         currentClient = control.GetClient;
+                        currentDelivery.OwnerId = currentClient.Id;
                         textEdit1.Text = $"{currentClient.FirstName} {currentClient.SecondName} {currentClient.LastName}";
                     }
                 }
@@ -68,6 +75,10 @@ namespace SSI.UI.Forms
         {
             if (!ValidateData())
                 return;
+
+            currentDelivery.Date = DateTime.Now;
+            Gateway.Call(new RegisterDelivery() { Delivery = currentDelivery });
+            this.Close();
         }
 
         private bool ValidateData()
@@ -87,7 +98,29 @@ namespace SSI.UI.Forms
                 }
             }
 
+
+            if (currentParty.Count < 1)
+            {
+                XtraMessageBox.Show("Необходимо добавить товар", "Ошибка", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
+                return false;
+            }
+
             return true;
+        }
+
+        private void gridView2_PopupMenuShowing(object sender, DevExpress.XtraGrid.Views.Grid.PopupMenuShowingEventArgs e)
+        {
+            if (e.HitInfo.InDataRow)
+            {
+                popupMenu1.ShowPopup(MousePosition);
+            }
+        }
+
+        private void barButtonItem1_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            var party = partyBindingSource.Current as Party;
+            currentParty.Remove(party);
+            partyBindingSource.RemoveCurrent();
         }
     }
 }

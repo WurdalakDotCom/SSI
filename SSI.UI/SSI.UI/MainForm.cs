@@ -1,6 +1,7 @@
 ﻿using DevExpress.XtraBars;
 using DevExpress.XtraEditors;
 using SSI.Server.ServiceModel.ClientModels;
+using SSI.Server.ServiceModel.DeliveryModels;
 using SSI.Server.ServiceModel.ProductModels;
 using SSI.UI.Core;
 using SSI.UI.Forms;
@@ -12,17 +13,14 @@ namespace SSI.UI
         public MainForm()
         {
             InitializeComponent();
-            RefreshDataClient();
+            RefreshData();
         }
 
-        private void RefreshDataClient()
+        private void RefreshData()
         {
             clientBindingSource.DataSource = Gateway.Call(new GetAllClient()).Result;
-        }
-
-        private void RefreshDataProduct()
-        {
             productBindingSource.DataSource = Gateway.Call(new GetAllProduct()).Result;
+            deliveryBindingSource.DataSource = Gateway.Call(new GetAllDelivery()).Result;
         }
 
         private void barButtonItem1_ItemClick(object sender, ItemClickEventArgs e)
@@ -38,7 +36,7 @@ namespace SSI.UI
             using (var form = new AddClient())
             {
                 form.ShowDialog();
-                RefreshDataClient();
+                RefreshData();
             }
         }
 
@@ -53,12 +51,12 @@ namespace SSI.UI
             }
 
             Gateway.Call(new DeleteClient() { Client = currentClient });
-            RefreshDataClient();
+            RefreshData();
         }
 
         private void barButtonItem5_ItemClick(object sender, ItemClickEventArgs e)
         {
-            RefreshDataClient();
+            RefreshData();
         }
 
         private void barButtonItem3_ItemClick(object sender, ItemClickEventArgs e)
@@ -66,7 +64,7 @@ namespace SSI.UI
             using (var form = new AddClient(clientBindingSource.Current as Client))
             {
                 form.ShowDialog();
-                RefreshDataClient();
+                RefreshData();
             }
         }
 
@@ -75,7 +73,7 @@ namespace SSI.UI
             using (var form = new ProductManagement())
             {
                 form.ShowDialog();
-                RefreshDataProduct();
+                RefreshData();
             }
         }
 
@@ -90,7 +88,7 @@ namespace SSI.UI
             }
 
             Gateway.Call(new DeleteProduct() { Product = currentProduct });
-            RefreshDataProduct();
+            RefreshData();
         }
 
         private void barButtonItem8_ItemClick(object sender, ItemClickEventArgs e)
@@ -98,13 +96,8 @@ namespace SSI.UI
             using (var form = new ProductManagement(productBindingSource.Current as Product))
             {
                 form.ShowDialog();
-                RefreshDataProduct();
+                RefreshData();
             }
-        }
-
-        private void barButtonItem9_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            RefreshDataProduct();
         }
 
         private void barButtonItem10_ItemClick(object sender, ItemClickEventArgs e)
@@ -113,6 +106,20 @@ namespace SSI.UI
             {
                 form.ShowDialog();
             }
+        }
+
+        private void barButtonItem11_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            var currentDelivery = deliveryBindingSource.Current as Delivery;
+
+            if (currentDelivery == null)
+            {
+                XtraMessageBox.Show("Сначала выберете поставку", "Предупреждение", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Information);
+                return;
+            }
+
+            Gateway.Call(new DeleteDelivery() { Delivery = currentDelivery });
+            RefreshData();
         }
     }
 }

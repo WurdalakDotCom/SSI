@@ -183,6 +183,7 @@
     <None Include="App.config" />
     <None Include="packages.config" />
     <None Include="Properties\DataSources\SSI.Server.ServiceModel.ClientModels.Client.datasource" />
+    <None Include="Properties\DataSources\SSI.Server.ServiceModel.DeliveryModels.Delivery.datasource" />
     <None Include="Properties\DataSources\SSI.Server.ServiceModel.DeliveryModels.Party.datasource" />
     <None Include="Properties\DataSources\SSI.Server.ServiceModel.ProductModels.Product.datasource" />
     <None Include="Properties\DataSources\SSI.Server.ServiceModel.UserModels.UserLocal.datasource" />
