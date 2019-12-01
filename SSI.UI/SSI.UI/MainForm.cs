@@ -1,5 +1,6 @@
 ﻿using DevExpress.XtraBars;
 using DevExpress.XtraEditors;
+using DevExpress.XtraReports.UI;
 using SSI.Server.ServiceModel.ClientModels;
 using SSI.Server.ServiceModel.DeliveryModels;
 using SSI.Server.ServiceModel.ProductModels;
@@ -7,6 +8,7 @@ using SSI.UI.Core;
 using SSI.UI.Forms;
 using System.Collections.Generic;
 using System.Runtime.Caching;
+using System.Windows.Forms;
 
 namespace SSI.UI
 {
@@ -167,7 +169,17 @@ namespace SSI.UI
 
         private void barButtonItem9_ItemClick(object sender, ItemClickEventArgs e)
         {
+            Application.Restart();
+        }
 
+        private void barButtonItem12_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            if (deliveryBindingSource.Current is Delivery buffer && buffer != null)
+            {
+                var report = new Report();
+                report.objectDataSource1.DataSource = buffer;
+                report.ShowPreview();
+            }            
         }
     }
 }
