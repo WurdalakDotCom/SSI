@@ -32,7 +32,7 @@ namespace SSI.Server
             //var dbFactory = container.Register<IDbConnectionFactory>(c =>
             //    new OrmLiteConnectionFactory(ConfigurationManager.AppSettings.Get("IDB"), PostgreSqlDialect.Provider));
             var dbFactory = container.Register<IDbConnectionFactory>(c =>
-                new OrmLiteConnectionFactory("C:/tmp.db3", SqliteDialect.Provider));
+                new OrmLiteConnectionFactory(ConfigurationManager.AppSettings.Get("IDBLocal"), SqliteDialect.Provider));
             
 
             Plugins.Add(new AuthFeature(() => new AuthUserSession(), new IAuthProvider[] {

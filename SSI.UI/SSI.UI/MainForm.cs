@@ -159,11 +159,6 @@ namespace SSI.UI
                     tabNavigationPage1.PageVisible = false;
                     tabNavigationPage2.PageVisible = false;
                 }
-                
-                if (roles.Contains("Opr"))
-                {
-
-                }
             }
         }
 

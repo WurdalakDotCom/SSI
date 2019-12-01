@@ -56,8 +56,9 @@ namespace SSI.UI.Core
                         return null;
                     }
                 }
-                else                    
+                else                   
                 {
+                    Environment.Exit(1);
                     return null;
                 }
             }
