@@ -1,4 +1,5 @@
-﻿using ServiceStack;
+﻿using DevExpress.XtraEditors;
+using ServiceStack;
 using SSI.Server.ServiceModel.UserModels;
 using SSI.UI.UserControls;
 using System;
@@ -9,15 +10,18 @@ namespace SSI.UI.Core
 {
     public class Authorization
     {
-        public void UserAuthorizationForm()
+        public bool UserAuthorizationForm()
         {
             var authorizedUser = GetAuthorizedUser();
+            
             if (authorizedUser == null)
             {
-                Environment.Exit(1);
+                return false;
+                //Environment.Exit(1);
             }
 
             MemoryCache.Default["roles"] = authorizedUser.Roles;
+            return true;
         }
 
         public bool Authorize(UserLocal userAuth)
@@ -29,7 +33,7 @@ namespace SSI.UI.Core
             }
             catch (WebServiceException ex)
             {
-                MessageBox.Show(ex.ErrorMessage);
+                XtraMessageBox.Show("Неправильный пароль или логин!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
         }

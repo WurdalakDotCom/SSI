@@ -5,6 +5,8 @@ using SSI.Server.ServiceModel.DeliveryModels;
 using SSI.Server.ServiceModel.ProductModels;
 using SSI.UI.Core;
 using SSI.UI.Forms;
+using System.Collections.Generic;
+using System.Runtime.Caching;
 
 namespace SSI.UI
 {
@@ -18,9 +20,22 @@ namespace SSI.UI
 
         private void RefreshData()
         {
+            OnPrivate();
+
             clientBindingSource.DataSource = Gateway.Call(new GetAllClient()).Result;
+            clientBindingSource1.DataSource = Gateway.Call(new GetAllClient()).Result;
             productBindingSource.DataSource = Gateway.Call(new GetAllProduct()).Result;
             deliveryBindingSource.DataSource = Gateway.Call(new GetAllDelivery()).Result;
+
+            clientBindingSource1.CurrentChanged += ClientBindingSource1_CurrentChanged;
+        }
+
+        private void ClientBindingSource1_CurrentChanged(object sender, System.EventArgs e)
+        {
+            if (clientBindingSource1.Current is Client buffer && buffer != null)
+                accountingBindingSource.DataSource = Gateway.Call(new GetAccountingByOwnerId() { Id = buffer.Id }).Result;
+            else
+                accountingBindingSource.Clear();
         }
 
         private void barButtonItem1_ItemClick(object sender, ItemClickEventArgs e)
@@ -44,7 +59,7 @@ namespace SSI.UI
         {
             var currentClient = clientBindingSource.Current as Client;
 
-            if(currentClient == null)
+            if (currentClient == null)
             {
                 XtraMessageBox.Show("Сначала выберете клиента", "Предупреждение", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Information);
                 return;
@@ -120,6 +135,39 @@ namespace SSI.UI
 
             Gateway.Call(new DeleteDelivery() { Delivery = currentDelivery });
             RefreshData();
+        }
+
+        private void OnPrivate()
+        {
+            var roles = MemoryCache.Default["roles"] as List<string>;
+
+            if (!roles.Contains("Admin"))
+            {
+                ribbonPageGroup1.Enabled = false;
+
+                if (roles.Contains("Dis") && roles.Contains("Opr"))
+                {
+                    return;
+                }
+
+                if (roles.Contains("Dis"))
+                {
+                    ribbonPageGroup2.Enabled = false;
+                    ribbonPageGroup3.Enabled = false;
+                    tabNavigationPage1.PageVisible = false;
+                    tabNavigationPage2.PageVisible = false;
+                }
+                
+                if (roles.Contains("Opr"))
+                {
+
+                }
+            }
+        }
+
+        private void barButtonItem9_ItemClick(object sender, ItemClickEventArgs e)
+        {
+
         }
     }
 }

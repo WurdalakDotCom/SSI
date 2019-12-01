@@ -33,11 +33,10 @@ namespace SSI.Server
             //    new OrmLiteConnectionFactory(ConfigurationManager.AppSettings.Get("IDB"), PostgreSqlDialect.Provider));
             var dbFactory = container.Register<IDbConnectionFactory>(c =>
                 new OrmLiteConnectionFactory("C:/tmp.db3", SqliteDialect.Provider));
-            ;
+            
 
             Plugins.Add(new AuthFeature(() => new AuthUserSession(), new IAuthProvider[] {
                 new CredentialsAuthProvider() { SessionExpiry = System.TimeSpan.FromHours(AppSettings.Get<int>("SessionLifeTimeInHours")) }}));
-
 
             container.Register<IAuthRepository>(arg =>
                 new OrmLiteAuthRepository(container.Resolve<IDbConnectionFactory>()) { UseDistinctRoleTables = true, ForceCaseInsensitiveUserNameSearch = true });

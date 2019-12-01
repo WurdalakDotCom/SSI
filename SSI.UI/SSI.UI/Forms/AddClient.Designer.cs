@@ -152,6 +152,8 @@
             // 
             this.textEdit6.Location = new System.Drawing.Point(184, 132);
             this.textEdit6.Name = "textEdit6";
+            this.textEdit6.Properties.Mask.EditMask = "[0-9]{7}[A-Za-z][0-9]{3}[A-Za-z]{2}[0-9]";
+            this.textEdit6.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
             this.textEdit6.Size = new System.Drawing.Size(344, 20);
             this.textEdit6.StyleController = this.layoutControl1;
             this.textEdit6.TabIndex = 12;

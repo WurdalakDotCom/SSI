@@ -48,6 +48,7 @@
     <Compile Include="DeliveryModels\CRUDDelivery.cs" />
     <Compile Include="DeliveryModels\Delivery.cs" />
     <Compile Include="ProductModels\Accounting.cs" />
+    <Compile Include="ProductModels\CRUDAccounting.cs" />
     <Compile Include="ProductModels\CRUDProduct.cs" />
     <Compile Include="ProductModels\Product.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

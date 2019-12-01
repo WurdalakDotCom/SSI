@@ -47,7 +47,6 @@
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.tabPane1 = new DevExpress.XtraBars.Navigation.TabPane();
             this.tabNavigationPage1 = new DevExpress.XtraBars.Navigation.TabNavigationPage();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
@@ -81,8 +80,25 @@
             this.splitterControl1 = new DevExpress.XtraEditors.SplitterControl();
             this.gridControl3 = new DevExpress.XtraGrid.GridControl();
             this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.colId2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDate = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.tabNavigationPage4 = new DevExpress.XtraBars.Navigation.TabNavigationPage();
+            this.gridControl6 = new DevExpress.XtraGrid.GridControl();
+            this.accountingBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.gridView5 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.splitter1 = new System.Windows.Forms.Splitter();
+            this.gridControl5 = new DevExpress.XtraGrid.GridControl();
+            this.clientBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.gridView4 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colFirstName1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colLastName1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colSecondName1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colPhone = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.ribbonPageGroup6 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.barButtonItem9 = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabPane1)).BeginInit();
             this.tabPane1.SuspendLayout();
@@ -102,6 +118,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridView3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
+            this.tabNavigationPage4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.accountingBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clientBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView4)).BeginInit();
             this.SuspendLayout();
             // 
             // ribbon
@@ -119,15 +142,16 @@
             this.barButtonItem7,
             this.barButtonItem8,
             this.barButtonItem10,
-            this.barButtonItem11});
+            this.barButtonItem11,
+            this.barButtonItem9});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 14;
+            this.ribbon.MaxItemId = 15;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1});
             this.ribbon.ShowApplicationButton = DevExpress.Utils.DefaultBoolean.False;
-            this.ribbon.Size = new System.Drawing.Size(1039, 143);
-            this.ribbon.StatusBar = this.ribbonStatusBar;
+            this.ribbon.ShowPageHeadersMode = DevExpress.XtraBars.Ribbon.ShowPageHeadersMode.ShowOnMultiplePages;
+            this.ribbon.Size = new System.Drawing.Size(1039, 122);
             this.ribbon.ToolbarLocation = DevExpress.XtraBars.Ribbon.RibbonQuickAccessToolbarLocation.Hidden;
             // 
             // barButtonItem1
@@ -225,7 +249,8 @@
             this.ribbonPageGroup5,
             this.ribbonPageGroup2,
             this.ribbonPageGroup3,
-            this.ribbonPageGroup4});
+            this.ribbonPageGroup4,
+            this.ribbonPageGroup6});
             this.ribbonPage1.Name = "ribbonPage1";
             this.ribbonPage1.Text = "ribbonPage1";
             // 
@@ -265,28 +290,23 @@
             this.ribbonPageGroup4.Name = "ribbonPageGroup4";
             this.ribbonPageGroup4.Text = "Управление поставками";
             // 
-            // ribbonStatusBar
-            // 
-            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 619);
-            this.ribbonStatusBar.Name = "ribbonStatusBar";
-            this.ribbonStatusBar.Ribbon = this.ribbon;
-            this.ribbonStatusBar.Size = new System.Drawing.Size(1039, 31);
-            // 
             // tabPane1
             // 
             this.tabPane1.Controls.Add(this.tabNavigationPage1);
             this.tabPane1.Controls.Add(this.tabNavigationPage2);
             this.tabPane1.Controls.Add(this.tabNavigationPage3);
+            this.tabPane1.Controls.Add(this.tabNavigationPage4);
             this.tabPane1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabPane1.Location = new System.Drawing.Point(0, 143);
+            this.tabPane1.Location = new System.Drawing.Point(0, 122);
             this.tabPane1.Name = "tabPane1";
             this.tabPane1.Pages.AddRange(new DevExpress.XtraBars.Navigation.NavigationPageBase[] {
             this.tabNavigationPage1,
             this.tabNavigationPage2,
-            this.tabNavigationPage3});
-            this.tabPane1.RegularSize = new System.Drawing.Size(1039, 476);
+            this.tabNavigationPage3,
+            this.tabNavigationPage4});
+            this.tabPane1.RegularSize = new System.Drawing.Size(1039, 524);
             this.tabPane1.SelectedPage = this.tabNavigationPage1;
-            this.tabPane1.Size = new System.Drawing.Size(1039, 476);
+            this.tabPane1.Size = new System.Drawing.Size(1039, 524);
             this.tabPane1.TabIndex = 2;
             // 
             // tabNavigationPage1
@@ -294,7 +314,7 @@
             this.tabNavigationPage1.Caption = "Клиенты";
             this.tabNavigationPage1.Controls.Add(this.gridControl1);
             this.tabNavigationPage1.Name = "tabNavigationPage1";
-            this.tabNavigationPage1.Size = new System.Drawing.Size(1039, 449);
+            this.tabNavigationPage1.Size = new System.Drawing.Size(1039, 497);
             // 
             // gridControl1
             // 
@@ -306,7 +326,7 @@
             this.gridControl1.Name = "gridControl1";
             this.gridControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemTextEdit1});
-            this.gridControl1.Size = new System.Drawing.Size(1039, 449);
+            this.gridControl1.Size = new System.Drawing.Size(1039, 497);
             this.gridControl1.TabIndex = 0;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.clientView});
@@ -405,7 +425,7 @@
             this.tabNavigationPage2.Caption = "Товары";
             this.tabNavigationPage2.Controls.Add(this.gridControl2);
             this.tabNavigationPage2.Name = "tabNavigationPage2";
-            this.tabNavigationPage2.Size = new System.Drawing.Size(1039, 449);
+            this.tabNavigationPage2.Size = new System.Drawing.Size(1039, 497);
             // 
             // gridControl2
             // 
@@ -415,7 +435,7 @@
             this.gridControl2.MainView = this.gridView1;
             this.gridControl2.MenuManager = this.ribbon;
             this.gridControl2.Name = "gridControl2";
-            this.gridControl2.Size = new System.Drawing.Size(1039, 449);
+            this.gridControl2.Size = new System.Drawing.Size(1039, 497);
             this.gridControl2.TabIndex = 0;
             this.gridControl2.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -473,7 +493,7 @@
             this.tabNavigationPage3.Controls.Add(this.splitterControl1);
             this.tabNavigationPage3.Controls.Add(this.gridControl3);
             this.tabNavigationPage3.Name = "tabNavigationPage3";
-            this.tabNavigationPage3.Size = new System.Drawing.Size(1039, 449);
+            this.tabNavigationPage3.Size = new System.Drawing.Size(1039, 497);
             // 
             // gridControl4
             // 
@@ -483,7 +503,7 @@
             this.gridControl4.MainView = this.gridView3;
             this.gridControl4.MenuManager = this.ribbon;
             this.gridControl4.Name = "gridControl4";
-            this.gridControl4.Size = new System.Drawing.Size(544, 449);
+            this.gridControl4.Size = new System.Drawing.Size(544, 497);
             this.gridControl4.TabIndex = 1;
             this.gridControl4.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView3});
@@ -537,7 +557,7 @@
             // 
             this.splitterControl1.Location = new System.Drawing.Point(490, 0);
             this.splitterControl1.Name = "splitterControl1";
-            this.splitterControl1.Size = new System.Drawing.Size(5, 449);
+            this.splitterControl1.Size = new System.Drawing.Size(5, 497);
             this.splitterControl1.TabIndex = 2;
             this.splitterControl1.TabStop = false;
             // 
@@ -550,7 +570,7 @@
             this.gridControl3.MenuManager = this.ribbon;
             this.gridControl3.Name = "gridControl3";
             this.gridControl3.ShowOnlyPredefinedDetails = true;
-            this.gridControl3.Size = new System.Drawing.Size(490, 449);
+            this.gridControl3.Size = new System.Drawing.Size(490, 497);
             this.gridControl3.TabIndex = 0;
             this.gridControl3.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView2});
@@ -558,7 +578,7 @@
             // gridView2
             // 
             this.gridView2.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.colId2,
+            this.gridColumn6,
             this.colDate});
             this.gridView2.GridControl = this.gridControl3;
             this.gridView2.Name = "gridView2";
@@ -567,12 +587,13 @@
             this.gridView2.OptionsView.ShowErrorPanel = DevExpress.Utils.DefaultBoolean.False;
             this.gridView2.OptionsView.ShowGroupPanel = false;
             // 
-            // colId2
+            // gridColumn6
             // 
-            this.colId2.FieldName = "Id";
-            this.colId2.Name = "colId2";
-            this.colId2.Visible = true;
-            this.colId2.VisibleIndex = 0;
+            this.gridColumn6.Caption = "Поставка на";
+            this.gridColumn6.FieldName = "Client.FirstName";
+            this.gridColumn6.Name = "gridColumn6";
+            this.gridColumn6.Visible = true;
+            this.gridColumn6.VisibleIndex = 0;
             // 
             // colDate
             // 
@@ -583,19 +604,162 @@
             this.colDate.Visible = true;
             this.colDate.VisibleIndex = 1;
             // 
+            // tabNavigationPage4
+            // 
+            this.tabNavigationPage4.Caption = "Товарный учет";
+            this.tabNavigationPage4.Controls.Add(this.gridControl6);
+            this.tabNavigationPage4.Controls.Add(this.splitter1);
+            this.tabNavigationPage4.Controls.Add(this.gridControl5);
+            this.tabNavigationPage4.Name = "tabNavigationPage4";
+            this.tabNavigationPage4.Size = new System.Drawing.Size(1039, 497);
+            // 
+            // gridControl6
+            // 
+            this.gridControl6.DataSource = this.accountingBindingSource;
+            this.gridControl6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridControl6.Location = new System.Drawing.Point(630, 0);
+            this.gridControl6.MainView = this.gridView5;
+            this.gridControl6.MenuManager = this.ribbon;
+            this.gridControl6.Name = "gridControl6";
+            this.gridControl6.Size = new System.Drawing.Size(409, 497);
+            this.gridControl6.TabIndex = 2;
+            this.gridControl6.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView5});
+            // 
+            // accountingBindingSource
+            // 
+            this.accountingBindingSource.DataSource = typeof(SSI.Server.ServiceModel.ProductModels.Accounting);
+            // 
+            // gridView5
+            // 
+            this.gridView5.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridColumn3,
+            this.gridColumn4,
+            this.gridColumn5});
+            this.gridView5.GridControl = this.gridControl6;
+            this.gridView5.Name = "gridView5";
+            this.gridView5.OptionsBehavior.Editable = false;
+            this.gridView5.OptionsView.ShowAutoFilterRow = true;
+            this.gridView5.OptionsView.ShowGroupPanel = false;
+            // 
+            // gridColumn3
+            // 
+            this.gridColumn3.Caption = "Товар";
+            this.gridColumn3.FieldName = "Product.Name";
+            this.gridColumn3.Name = "gridColumn3";
+            this.gridColumn3.Visible = true;
+            this.gridColumn3.VisibleIndex = 0;
+            // 
+            // gridColumn4
+            // 
+            this.gridColumn4.Caption = "Артикл";
+            this.gridColumn4.FieldName = "Product.Article";
+            this.gridColumn4.Name = "gridColumn4";
+            this.gridColumn4.Visible = true;
+            this.gridColumn4.VisibleIndex = 1;
+            // 
+            // gridColumn5
+            // 
+            this.gridColumn5.Caption = "Количество";
+            this.gridColumn5.FieldName = "Count";
+            this.gridColumn5.Name = "gridColumn5";
+            this.gridColumn5.Visible = true;
+            this.gridColumn5.VisibleIndex = 2;
+            // 
+            // splitter1
+            // 
+            this.splitter1.Location = new System.Drawing.Point(627, 0);
+            this.splitter1.Name = "splitter1";
+            this.splitter1.Size = new System.Drawing.Size(3, 497);
+            this.splitter1.TabIndex = 1;
+            this.splitter1.TabStop = false;
+            // 
+            // gridControl5
+            // 
+            this.gridControl5.DataSource = this.clientBindingSource1;
+            this.gridControl5.Dock = System.Windows.Forms.DockStyle.Left;
+            this.gridControl5.Location = new System.Drawing.Point(0, 0);
+            this.gridControl5.MainView = this.gridView4;
+            this.gridControl5.MenuManager = this.ribbon;
+            this.gridControl5.Name = "gridControl5";
+            this.gridControl5.Size = new System.Drawing.Size(627, 497);
+            this.gridControl5.TabIndex = 0;
+            this.gridControl5.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView4});
+            // 
+            // clientBindingSource1
+            // 
+            this.clientBindingSource1.DataSource = typeof(SSI.Server.ServiceModel.ClientModels.Client);
+            // 
+            // gridView4
+            // 
+            this.gridView4.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colFirstName1,
+            this.colLastName1,
+            this.colSecondName1,
+            this.colPhone});
+            this.gridView4.GridControl = this.gridControl5;
+            this.gridView4.Name = "gridView4";
+            this.gridView4.OptionsBehavior.Editable = false;
+            this.gridView4.OptionsView.ShowAutoFilterRow = true;
+            this.gridView4.OptionsView.ShowGroupPanel = false;
+            // 
+            // colFirstName1
+            // 
+            this.colFirstName1.Caption = "Фамилия";
+            this.colFirstName1.FieldName = "FirstName";
+            this.colFirstName1.Name = "colFirstName1";
+            this.colFirstName1.Visible = true;
+            this.colFirstName1.VisibleIndex = 0;
+            // 
+            // colLastName1
+            // 
+            this.colLastName1.Caption = "Имя";
+            this.colLastName1.FieldName = "LastName";
+            this.colLastName1.Name = "colLastName1";
+            this.colLastName1.Visible = true;
+            this.colLastName1.VisibleIndex = 1;
+            // 
+            // colSecondName1
+            // 
+            this.colSecondName1.Caption = "Отчество";
+            this.colSecondName1.FieldName = "SecondName";
+            this.colSecondName1.Name = "colSecondName1";
+            this.colSecondName1.Visible = true;
+            this.colSecondName1.VisibleIndex = 2;
+            // 
+            // colPhone
+            // 
+            this.colPhone.Caption = "Телефон";
+            this.colPhone.FieldName = "Phone";
+            this.colPhone.Name = "colPhone";
+            this.colPhone.Visible = true;
+            this.colPhone.VisibleIndex = 3;
+            // 
+            // ribbonPageGroup6
+            // 
+            this.ribbonPageGroup6.ItemLinks.Add(this.barButtonItem9);
+            this.ribbonPageGroup6.Name = "ribbonPageGroup6";
+            // 
+            // barButtonItem9
+            // 
+            this.barButtonItem9.Caption = "Выход пользователя";
+            this.barButtonItem9.Id = 14;
+            this.barButtonItem9.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem9.ImageOptions.SvgImage")));
+            this.barButtonItem9.Name = "barButtonItem9";
+            this.barButtonItem9.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.barButtonItem9.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem9_ItemClick);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1039, 650);
+            this.ClientSize = new System.Drawing.Size(1039, 646);
             this.Controls.Add(this.tabPane1);
-            this.Controls.Add(this.ribbonStatusBar);
             this.Controls.Add(this.ribbon);
             this.Name = "MainForm";
             this.Ribbon = this.ribbon;
             this.ShowIcon = false;
-            this.StatusBar = this.ribbonStatusBar;
-            this.Text = "MainForm";
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabPane1)).EndInit();
             this.tabPane1.ResumeLayout(false);
@@ -615,6 +779,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridView3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
+            this.tabNavigationPage4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.accountingBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clientBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView4)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -625,7 +796,6 @@
         private DevExpress.XtraBars.Ribbon.RibbonControl ribbon;
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage1;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;
-        private DevExpress.XtraBars.Ribbon.RibbonStatusBar ribbonStatusBar;
         private DevExpress.XtraBars.BarButtonItem barButtonItem1;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup2;
         private DevExpress.XtraBars.Navigation.TabPane tabPane1;
@@ -672,8 +842,25 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
         private DevExpress.XtraGrid.Columns.GridColumn colCount;
-        private DevExpress.XtraGrid.Columns.GridColumn colId2;
         private DevExpress.XtraGrid.Columns.GridColumn colDate;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup5;
+        private DevExpress.XtraBars.Navigation.TabNavigationPage tabNavigationPage4;
+        private DevExpress.XtraGrid.GridControl gridControl6;
+        private System.Windows.Forms.BindingSource accountingBindingSource;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView5;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn3;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn4;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn5;
+        private System.Windows.Forms.Splitter splitter1;
+        private DevExpress.XtraGrid.GridControl gridControl5;
+        private System.Windows.Forms.BindingSource clientBindingSource1;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView4;
+        private DevExpress.XtraGrid.Columns.GridColumn colFirstName1;
+        private DevExpress.XtraGrid.Columns.GridColumn colLastName1;
+        private DevExpress.XtraGrid.Columns.GridColumn colSecondName1;
+        private DevExpress.XtraGrid.Columns.GridColumn colPhone;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn6;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem9;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup6;
     }
 }

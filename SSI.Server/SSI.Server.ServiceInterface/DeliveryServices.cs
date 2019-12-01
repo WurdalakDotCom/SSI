@@ -2,6 +2,7 @@
 using ServiceStack.Data;
 using ServiceStack.OrmLite;
 using SSI.Server.ServiceModel.DeliveryModels;
+using SSI.Server.ServiceModel.ProductModels;
 
 namespace SSI.Server.ServiceInterface
 {
@@ -46,6 +47,7 @@ namespace SSI.Server.ServiceInterface
         {
             using (var db = DbFactory.OpenDbConnection())
             {
+                db.ExecuteSql("PRAGMA foreign_keys = ON;");
                 db.Update(request.Delivery);
             }
         }
@@ -54,6 +56,7 @@ namespace SSI.Server.ServiceInterface
         {
             using (var db = DbFactory.OpenDbConnection())
             {
+                db.ExecuteSql("PRAGMA foreign_keys = ON;");
                 db.Delete(request.Delivery);
             }
         }
@@ -62,7 +65,25 @@ namespace SSI.Server.ServiceInterface
         {
             using (var db = DbFactory.OpenDbConnection())
             {
-                db.Save(request.Delivery, true);
+                request.Delivery.Id = (int)db.Insert(request.Delivery, true);
+                db.SaveAllReferences(request.Delivery);
+
+                var delivery = db.LoadSingleById<Delivery>(request.Delivery.Id);
+
+                foreach (var party in delivery.Parties)
+                {
+                    var buffer = db.Single<Accounting>(x => x.ProductId == party.ProductId && x.OwnerId == delivery.OwnerId);
+
+                    if(buffer == null)
+                    {
+                        db.Insert(new Accounting() { ProductId = party.ProductId, OwnerId = delivery.OwnerId, Count = party.Count });
+                    }
+                    else
+                    {
+                        buffer.Count += party.Count;
+                        db.Update(buffer);
+                    }
+                }
             }
         }
     }

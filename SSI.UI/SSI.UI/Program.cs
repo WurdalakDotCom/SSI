@@ -6,7 +6,7 @@ using SSI.UI.Core;
 namespace SSI.UI
 {
     static class Program
-    { 
+    {
         [STAThread]
         static void Main()
         {
@@ -15,7 +15,8 @@ namespace SSI.UI
             BonusSkins.Register();
 
             var authorization = new Authorization();
-            authorization.UserAuthorizationForm();
+            while (!authorization.UserAuthorizationForm());
+
 
             Application.Run(new MainForm());
         }
