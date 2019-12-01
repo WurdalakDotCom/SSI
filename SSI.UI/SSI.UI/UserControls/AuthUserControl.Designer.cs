@@ -41,6 +41,8 @@
             this.passwordTE.Location = new System.Drawing.Point(54, 55);
             this.passwordTE.Name = "passwordTE";
             this.passwordTE.Properties.NullValuePrompt = "Пароль";
+            this.passwordTE.Properties.PasswordChar = '*';
+            this.passwordTE.Properties.UseSystemPasswordChar = true;
             this.passwordTE.Size = new System.Drawing.Size(189, 20);
             this.passwordTE.TabIndex = 9;
             // 

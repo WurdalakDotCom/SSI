@@ -10,7 +10,7 @@ namespace SSI.Server
         static void Main(string[] args)
         {
             new AppHost().Init().Start($"http://{ConfigurationManager.AppSettings.Get("Host")}/");
-            $"ServiceStack Self Host with Razor listening at {ConfigurationManager.AppSettings.Get("Host")}".Print();
+            $"Server started. Listening at {ConfigurationManager.AppSettings.Get("Host")}".Print();
             Console.ReadLine();
         }
     }
