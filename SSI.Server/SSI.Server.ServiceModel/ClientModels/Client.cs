@@ -1,9 +1,7 @@
 ﻿using ServiceStack.DataAnnotations;
+using SSI.Server.ServiceModel.ProductModels;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SSI.Server.ServiceModel.ClientModels
 {
@@ -25,5 +23,7 @@ namespace SSI.Server.ServiceModel.ClientModels
         [Default("NOW()")]
         public DateTime RegDate { get; set; }
         public string Phone { get; set; }
+        [Reference]
+        public List<Accounting> Accountings { get; set; }
     }
 }

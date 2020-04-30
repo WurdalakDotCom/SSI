@@ -34,7 +34,7 @@ namespace SSI.UI
 
         private void ClientBindingSource1_CurrentChanged(object sender, System.EventArgs e)
         {
-            if (clientBindingSource1.Current is Client buffer && buffer != null)
+            if (clientBindingSource1.Current is Client buffer)
                 accountingBindingSource.DataSource = Gateway.Call(new GetAccountingByOwnerId() { Id = buffer.Id }).Result;
             else
                 accountingBindingSource.Clear();
@@ -169,12 +169,23 @@ namespace SSI.UI
 
         private void barButtonItem12_ItemClick(object sender, ItemClickEventArgs e)
         {
-            if (deliveryBindingSource.Current is Delivery buffer && buffer != null)
+            if (deliveryBindingSource.Current is Delivery buffer)
             {
                 var report = new Report();
                 report.objectDataSource1.DataSource = buffer;
                 report.ShowPreview();
             }            
+        }
+
+        private void barButtonItem13_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            if (clientBindingSource1.Current is Client buffer)
+            {
+                buffer.Accountings = Gateway.Call(new GetAccountingByOwnerId() { Id = buffer.Id }).Result;
+                var report = new Report1();
+                report.objectDataSource1.DataSource = buffer;
+                report.ShowPreview();
+            }
         }
     }
 }

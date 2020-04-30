@@ -43,6 +43,8 @@
             this.barButtonItem11 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem9 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem12 = new DevExpress.XtraBars.BarButtonItem();
+            this.barSubItem1 = new DevExpress.XtraBars.BarSubItem();
+            this.barButtonItem13 = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup5 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -145,15 +147,17 @@
             this.barButtonItem10,
             this.barButtonItem11,
             this.barButtonItem9,
-            this.barButtonItem12});
+            this.barButtonItem12,
+            this.barSubItem1,
+            this.barButtonItem13});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 16;
+            this.ribbon.MaxItemId = 18;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1});
             this.ribbon.ShowApplicationButton = DevExpress.Utils.DefaultBoolean.False;
             this.ribbon.ShowPageHeadersMode = DevExpress.XtraBars.Ribbon.ShowPageHeadersMode.ShowOnMultiplePages;
-            this.ribbon.Size = new System.Drawing.Size(1039, 122);
+            this.ribbon.Size = new System.Drawing.Size(1039, 132);
             this.ribbon.ToolbarLocation = DevExpress.XtraBars.Ribbon.RibbonQuickAccessToolbarLocation.Hidden;
             // 
             // barButtonItem1
@@ -255,12 +259,29 @@
             // 
             // barButtonItem12
             // 
-            this.barButtonItem12.Caption = "Отчет";
+            this.barButtonItem12.Caption = "Отчет о поставке";
             this.barButtonItem12.Id = 15;
-            this.barButtonItem12.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem12.ImageOptions.SvgImage")));
             this.barButtonItem12.Name = "barButtonItem12";
             this.barButtonItem12.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
             this.barButtonItem12.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem12_ItemClick);
+            // 
+            // barSubItem1
+            // 
+            this.barSubItem1.Caption = "Отчет";
+            this.barSubItem1.Id = 16;
+            this.barSubItem1.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barSubItem1.ImageOptions.SvgImage")));
+            this.barSubItem1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem12),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem13)});
+            this.barSubItem1.Name = "barSubItem1";
+            this.barSubItem1.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            // 
+            // barButtonItem13
+            // 
+            this.barButtonItem13.Caption = "Отчет об учете";
+            this.barButtonItem13.Id = 17;
+            this.barButtonItem13.Name = "barButtonItem13";
+            this.barButtonItem13.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem13_ItemClick);
             // 
             // ribbonPage1
             // 
@@ -276,9 +297,9 @@
             // 
             // ribbonPageGroup1
             // 
+            this.ribbonPageGroup1.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.False;
             this.ribbonPageGroup1.ItemLinks.Add(this.barButtonItem1);
             this.ribbonPageGroup1.Name = "ribbonPageGroup1";
-            this.ribbonPageGroup1.ShowCaptionButton = false;
             this.ribbonPageGroup1.Text = "Администрирование";
             // 
             // ribbonPageGroup5
@@ -307,7 +328,7 @@
             // 
             this.ribbonPageGroup4.ItemLinks.Add(this.barButtonItem10);
             this.ribbonPageGroup4.ItemLinks.Add(this.barButtonItem11);
-            this.ribbonPageGroup4.ItemLinks.Add(this.barButtonItem12);
+            this.ribbonPageGroup4.ItemLinks.Add(this.barSubItem1);
             this.ribbonPageGroup4.Name = "ribbonPageGroup4";
             this.ribbonPageGroup4.Text = "Управление поставками";
             // 
@@ -323,16 +344,16 @@
             this.tabPane1.Controls.Add(this.tabNavigationPage3);
             this.tabPane1.Controls.Add(this.tabNavigationPage4);
             this.tabPane1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabPane1.Location = new System.Drawing.Point(0, 122);
+            this.tabPane1.Location = new System.Drawing.Point(0, 132);
             this.tabPane1.Name = "tabPane1";
             this.tabPane1.Pages.AddRange(new DevExpress.XtraBars.Navigation.NavigationPageBase[] {
             this.tabNavigationPage1,
             this.tabNavigationPage2,
             this.tabNavigationPage3,
             this.tabNavigationPage4});
-            this.tabPane1.RegularSize = new System.Drawing.Size(1039, 524);
+            this.tabPane1.RegularSize = new System.Drawing.Size(1039, 514);
             this.tabPane1.SelectedPage = this.tabNavigationPage1;
-            this.tabPane1.Size = new System.Drawing.Size(1039, 524);
+            this.tabPane1.Size = new System.Drawing.Size(1039, 514);
             this.tabPane1.TabIndex = 2;
             // 
             // tabNavigationPage1
@@ -340,7 +361,7 @@
             this.tabNavigationPage1.Caption = "Клиенты";
             this.tabNavigationPage1.Controls.Add(this.gridControl1);
             this.tabNavigationPage1.Name = "tabNavigationPage1";
-            this.tabNavigationPage1.Size = new System.Drawing.Size(1039, 497);
+            this.tabNavigationPage1.Size = new System.Drawing.Size(1039, 485);
             // 
             // gridControl1
             // 
@@ -352,7 +373,7 @@
             this.gridControl1.Name = "gridControl1";
             this.gridControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemTextEdit1});
-            this.gridControl1.Size = new System.Drawing.Size(1039, 497);
+            this.gridControl1.Size = new System.Drawing.Size(1039, 485);
             this.gridControl1.TabIndex = 0;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.clientView});
@@ -519,17 +540,17 @@
             this.tabNavigationPage3.Controls.Add(this.splitterControl1);
             this.tabNavigationPage3.Controls.Add(this.gridControl3);
             this.tabNavigationPage3.Name = "tabNavigationPage3";
-            this.tabNavigationPage3.Size = new System.Drawing.Size(1039, 497);
+            this.tabNavigationPage3.Size = new System.Drawing.Size(1039, 485);
             // 
             // gridControl4
             // 
             this.gridControl4.DataSource = this.partiesBindingSource;
             this.gridControl4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridControl4.Location = new System.Drawing.Point(495, 0);
+            this.gridControl4.Location = new System.Drawing.Point(500, 0);
             this.gridControl4.MainView = this.gridView3;
             this.gridControl4.MenuManager = this.ribbon;
             this.gridControl4.Name = "gridControl4";
-            this.gridControl4.Size = new System.Drawing.Size(544, 497);
+            this.gridControl4.Size = new System.Drawing.Size(539, 485);
             this.gridControl4.TabIndex = 1;
             this.gridControl4.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView3});
@@ -583,7 +604,7 @@
             // 
             this.splitterControl1.Location = new System.Drawing.Point(490, 0);
             this.splitterControl1.Name = "splitterControl1";
-            this.splitterControl1.Size = new System.Drawing.Size(5, 497);
+            this.splitterControl1.Size = new System.Drawing.Size(10, 485);
             this.splitterControl1.TabIndex = 2;
             this.splitterControl1.TabStop = false;
             // 
@@ -596,7 +617,7 @@
             this.gridControl3.MenuManager = this.ribbon;
             this.gridControl3.Name = "gridControl3";
             this.gridControl3.ShowOnlyPredefinedDetails = true;
-            this.gridControl3.Size = new System.Drawing.Size(490, 497);
+            this.gridControl3.Size = new System.Drawing.Size(490, 485);
             this.gridControl3.TabIndex = 0;
             this.gridControl3.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView2});
@@ -637,7 +658,7 @@
             this.tabNavigationPage4.Controls.Add(this.splitter1);
             this.tabNavigationPage4.Controls.Add(this.gridControl5);
             this.tabNavigationPage4.Name = "tabNavigationPage4";
-            this.tabNavigationPage4.Size = new System.Drawing.Size(1039, 497);
+            this.tabNavigationPage4.Size = new System.Drawing.Size(1039, 485);
             // 
             // gridControl6
             // 
@@ -647,7 +668,7 @@
             this.gridControl6.MainView = this.gridView5;
             this.gridControl6.MenuManager = this.ribbon;
             this.gridControl6.Name = "gridControl6";
-            this.gridControl6.Size = new System.Drawing.Size(409, 497);
+            this.gridControl6.Size = new System.Drawing.Size(409, 485);
             this.gridControl6.TabIndex = 2;
             this.gridControl6.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView5});
@@ -696,7 +717,7 @@
             // 
             this.splitter1.Location = new System.Drawing.Point(627, 0);
             this.splitter1.Name = "splitter1";
-            this.splitter1.Size = new System.Drawing.Size(3, 497);
+            this.splitter1.Size = new System.Drawing.Size(3, 485);
             this.splitter1.TabIndex = 1;
             this.splitter1.TabStop = false;
             // 
@@ -708,7 +729,7 @@
             this.gridControl5.MainView = this.gridView4;
             this.gridControl5.MenuManager = this.ribbon;
             this.gridControl5.Name = "gridControl5";
-            this.gridControl5.Size = new System.Drawing.Size(627, 497);
+            this.gridControl5.Size = new System.Drawing.Size(627, 485);
             this.gridControl5.TabIndex = 0;
             this.gridControl5.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView4});
@@ -769,9 +790,9 @@
             this.ClientSize = new System.Drawing.Size(1039, 646);
             this.Controls.Add(this.tabPane1);
             this.Controls.Add(this.ribbon);
+            this.IconOptions.ShowIcon = false;
             this.Name = "MainForm";
             this.Ribbon = this.ribbon;
-            this.ShowIcon = false;
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabPane1)).EndInit();
             this.tabPane1.ResumeLayout(false);
@@ -875,5 +896,7 @@
         private DevExpress.XtraBars.BarButtonItem barButtonItem9;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup6;
         private DevExpress.XtraBars.BarButtonItem barButtonItem12;
+        private DevExpress.XtraBars.BarSubItem barSubItem1;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem13;
     }
 }
