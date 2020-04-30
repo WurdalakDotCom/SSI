@@ -1,6 +1,7 @@
 ﻿using DevExpress.XtraBars;
 using DevExpress.XtraEditors;
 using DevExpress.XtraReports.UI;
+using DevExpress.XtraVerticalGrid;
 using SSI.Server.ServiceModel.ClientModels;
 using SSI.Server.ServiceModel.DeliveryModels;
 using SSI.Server.ServiceModel.ProductModels;
@@ -56,12 +57,24 @@ namespace SSI.UI
                 RefreshData();
             }
         }
+        private void barButtonItem3_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            if (!(clientBindingSource.Current is Client currentClient) || tabPane1.SelectedPageIndex != 0)
+            {
+                XtraMessageBox.Show("Сначала выберете клиента", "Предупреждение", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Information);
+                return;
+            }
+
+            using (var form = new AddClient(currentClient))
+            {
+                form.ShowDialog();
+                RefreshData();
+            }
+        }
 
         private void barButtonItem4_ItemClick(object sender, ItemClickEventArgs e)
         {
-            var currentClient = clientBindingSource.Current as Client;
-
-            if (currentClient == null)
+            if (!(clientBindingSource.Current is Client currentClient) || tabPane1.SelectedPageIndex != 0)
             {
                 XtraMessageBox.Show("Сначала выберете клиента", "Предупреждение", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Information);
                 return;
@@ -76,15 +89,6 @@ namespace SSI.UI
             RefreshData();
         }
 
-        private void barButtonItem3_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            using (var form = new AddClient(clientBindingSource.Current as Client))
-            {
-                form.ShowDialog();
-                RefreshData();
-            }
-        }
-
         private void barButtonItem6_ItemClick(object sender, ItemClickEventArgs e)
         {
             using (var form = new ProductManagement())
@@ -96,9 +100,7 @@ namespace SSI.UI
 
         private void barButtonItem7_ItemClick(object sender, ItemClickEventArgs e)
         {
-            var currentProduct = productBindingSource.Current as Product;
-
-            if (currentProduct == null)
+            if (!(productBindingSource.Current is Product currentProduct) || tabPane1.SelectedPageIndex == 1)
             {
                 XtraMessageBox.Show("Сначала выберете товар", "Предупреждение", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Information);
                 return;
@@ -110,7 +112,13 @@ namespace SSI.UI
 
         private void barButtonItem8_ItemClick(object sender, ItemClickEventArgs e)
         {
-            using (var form = new ProductManagement(productBindingSource.Current as Product))
+            if (!(productBindingSource.Current is Product currentProduct) || tabPane1.SelectedPageIndex == 1)
+            {
+                XtraMessageBox.Show("Сначала выберете товар", "Предупреждение", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Information);
+                return;
+            }
+
+            using (var form = new ProductManagement(currentProduct))
             {
                 form.ShowDialog();
                 RefreshData();
@@ -127,9 +135,7 @@ namespace SSI.UI
 
         private void barButtonItem11_ItemClick(object sender, ItemClickEventArgs e)
         {
-            var currentDelivery = deliveryBindingSource.Current as Delivery;
-
-            if (currentDelivery == null)
+            if (!(deliveryBindingSource.Current is Delivery currentDelivery) || tabPane1.SelectedPageIndex != 2)
             {
                 XtraMessageBox.Show("Сначала выберете поставку", "Предупреждение", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Information);
                 return;
@@ -169,22 +175,36 @@ namespace SSI.UI
 
         private void barButtonItem12_ItemClick(object sender, ItemClickEventArgs e)
         {
-            if (deliveryBindingSource.Current is Delivery buffer)
+            if (tabPane1.SelectedPageIndex == 2)
             {
-                var report = new Report();
-                report.objectDataSource1.DataSource = buffer;
-                report.ShowPreview();
-            }            
+                if (deliveryBindingSource.Current is Delivery buffer)
+                {
+                    var report = new Report();
+                    report.objectDataSource1.DataSource = buffer;
+                    report.ShowPreview();
+                }
+            }
+            else
+            {
+                XtraMessageBox.Show("Выберете поставку для вывода в отчёт.");
+            }
         }
 
         private void barButtonItem13_ItemClick(object sender, ItemClickEventArgs e)
         {
-            if (clientBindingSource1.Current is Client buffer)
+            if (tabPane1.SelectedPageIndex == 3)
             {
-                buffer.Accountings = Gateway.Call(new GetAccountingByOwnerId() { Id = buffer.Id }).Result;
-                var report = new Report1();
-                report.objectDataSource1.DataSource = buffer;
-                report.ShowPreview();
+                if (clientBindingSource1.Current is Client buffer)
+                {
+                    buffer.Accountings = Gateway.Call(new GetAccountingByOwnerId() { Id = buffer.Id }).Result;
+                    var report = new Report1();
+                    report.objectDataSource1.DataSource = buffer;
+                    report.ShowPreview();
+                }
+            }
+            else
+            {
+                XtraMessageBox.Show("Выберете клиента для вывода в отчёт.");
             }
         }
     }
