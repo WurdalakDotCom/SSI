@@ -11,6 +11,7 @@ using SSI.Server.ServiceModel.ProductModels;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.IO;
 
 namespace SSI.Server
 {
@@ -29,11 +30,18 @@ namespace SSI.Server
         /// </summary>
         public override void Configure(Container container)
         {
-            //var dbFactory = container.Register<IDbConnectionFactory>(c =>
-            //    new OrmLiteConnectionFactory(ConfigurationManager.AppSettings.Get("IDB"), PostgreSqlDialect.Provider));
-            var dbFactory = container.Register<IDbConnectionFactory>(c =>
-                new OrmLiteConnectionFactory(ConfigurationManager.AppSettings.Get("IDBLocal"), SqliteDialect.Provider));
-            
+
+            if (ConfigurationManager.AppSettings.Get("Mode") == "local")
+            {
+                container.Register<IDbConnectionFactory>(c =>
+                    new OrmLiteConnectionFactory(ConfigurationManager.AppSettings.Get("IDB"), PostgreSqlDialect.Provider));
+            }
+            else
+            {
+                container.Register<IDbConnectionFactory>(c =>
+                     new OrmLiteConnectionFactory(ConfigurationManager.AppSettings.Get("IDBLocal"), SqliteDialect.Provider));
+            }
+
 
             Plugins.Add(new AuthFeature(() => new AuthUserSession(), new IAuthProvider[] {
                 new CredentialsAuthProvider() { SessionExpiry = System.TimeSpan.FromHours(AppSettings.Get<int>("SessionLifeTimeInHours")) }}));
@@ -54,11 +62,11 @@ namespace SSI.Server
             {
                 var user = db.Single<UserAuth>(x => x.UserName == "Admin");
 
-                if(user == null)
+                if (user == null)
                 {
                     authRepository.CreateUserAuth(new UserAuth() { UserName = "Admin", Roles = new List<string>() { "Admin" }, CreatedDate = DateTime.Now }, "12qwasZX");
                 }
-            
+
                 db.CreateTableIfNotExists<Client>();
                 db.CreateTableIfNotExists<Product>();
                 db.CreateTableIfNotExists<Accounting>();

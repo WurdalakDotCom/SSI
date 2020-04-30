@@ -45,12 +45,6 @@
     <Reference Include="ServiceStack.OrmLite, Version=5.0.0.0, Culture=neutral, PublicKeyToken=02c12cbda47e6587, processorArchitecture=MSIL">
       <HintPath>..\..\packages\ServiceStack.OrmLite.5.4.0\lib\net45\ServiceStack.OrmLite.dll</HintPath>
     </Reference>
-    <Reference Include="ServiceStack.Redis, Version=5.0.0.0, Culture=neutral, PublicKeyToken=02c12cbda47e6587, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\ServiceStack.Redis.5.4.0\lib\net45\ServiceStack.Redis.dll</HintPath>
-    </Reference>
-    <Reference Include="ServiceStack.Server, Version=5.0.0.0, Culture=neutral, PublicKeyToken=02c12cbda47e6587, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\ServiceStack.Server.5.4.0\lib\net45\ServiceStack.Server.dll</HintPath>
-    </Reference>
     <Reference Include="ServiceStack.Text, Version=5.0.0.0, Culture=neutral, PublicKeyToken=02c12cbda47e6587, processorArchitecture=MSIL">
       <HintPath>..\..\packages\ServiceStack.Text.5.4.1\lib\net45\ServiceStack.Text.dll</HintPath>
     </Reference>
